@@ -1,5 +1,6 @@
 <h1 align="center"> 
-    ✨ WilliamButcherBot ✨ 
+    ✨ SagaBot ✨ 
+<img src="https://graph.org/file/2dd5c9729f4c99bd03686.jpg"> 
 </h1>
 
 <h3 align="center"> 
@@ -28,8 +29,8 @@
 
 <p align="center">
     A Support Group and ready-to-use running instance of this bot can be found on Telegram <br>
-    <a href="https://t.me/WilliamButcherBot"> WilliamButcherBot </a> | 
-    <a href="https://t.me/wbbsupport"> WbbSupport </a>
+    <a href="https://t.me/managesecurity_bot"> ManagesecurityBot </a> | 
+    <a href="https://t.me/scattersuport"> ScatterSuport </a>
 </p>
 
 <h2 align="center"> 
@@ -48,8 +49,8 @@
 </h2>
 
 ```console
-thehamkercat@arch:~$ git clone https://github.com/thehamkercat/WilliamButcherBot
-thehamkercat@arch:~$ cd WilliamButcherBot
+thehamkercat@arch:~$ git clone https://github.com/sagaProjects/BotManage
+thehamkercat@arch:~$ cd BotManage
 thehamkercat@arch:~$ pip3 install -U -r requirements.txt
 thehamkercat@arch:~$ cp sample_config.py config.py
 ```
