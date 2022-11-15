@@ -49,10 +49,10 @@
 </h2>
 
 ```console
-thehamkercat@arch:~$ git clone https://github.com/sagaProjects/BotManage
-thehamkercat@arch:~$ cd BotManage
-thehamkercat@arch:~$ pip3 install -U -r requirements.txt
-thehamkercat@arch:~$ cp sample_config.py config.py
+root@sensei:~$ git clone https://github.com/sagaProjects/BotManage
+root@sensei:~$ cd BotManage
+root@sensei:~$ pip3 install -U -r requirements.txt
+root@sensei:~$ cp sample_config.py config.py
 ```
  
 <h3 align="center"> 
@@ -64,39 +64,8 @@ thehamkercat@arch:~$ cp sample_config.py config.py
 </h2>
 
 ```console
-thehamkercat@arch:~$ python3 -m wbb
+root@sensei:~$ python3 -m wbb
 ```
-
-<h3 align="center"> 
-   Generating Pyrogram Session For Heroku
-</h3>
-
-```console
-thehamkercat@arch:~$ git clone https://github.com/thehamkercat/WilliamButcherBot
-thehamkercat@arch:~$ cd WilliamButcherBot
-thehamkercat@arch:~$ pip3 install pyrogram TgCrypto
-thehamkercat@arch:~$ python3 str_gen.py
-```
-
-<h1 align="center"> 
-   ⇝ Docker ⇜
-</h1>
-
-```console
-thehamkercat@arch:~$ git clone https://github.com/thehamkercat/WilliamButcherBot
-thehamkercat@arch:~$ cd WilliamButcherBot
-thehamkercat@arch:~$ cp sample_config.env config.env
-```
-
-<h3 align="center"> 
-    Edit <b> config.env </b> with your own values
-</h3>
-
-```console
-thehamkercat@arch:~$ sudo docker build . -t wbb
-thehamkercat@arch:~$ sudo docker run wbb
-```
-
 <h2 align="center"> 
    ⇝ Write new modules ⇜
 </h2>
@@ -125,3 +94,6 @@ async def some_function(_, message):
 <h3 align="center"> 
    And put that file in wbb/modules/, restart and test your bot.
 </h3>
+ # NOTES
+THIS IS THE MUSIC REPO THAT I FORKED BECAUSE OF FROM
+[WilliamButcherBot](https://github.com/TheHamkerCat/WilliamButcherBot)
