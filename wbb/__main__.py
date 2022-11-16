@@ -140,14 +140,15 @@ home_keyboard_pm = InlineKeyboardMarkup(
     ]
 )
 
-home_text_pm = (
-        f"Hey there! My name is ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ. I can manage your "
-        + "× *Uptime:* `{}`× `{}` *users, across* `{}` *chats.* "   
-        + "group with lots of useful features, feel free to "
-        + "add me to your group."
-        + "(https://telegra.ph/file/92de668be91d7869e5d1a.jpg) "
-)
-
+PM_START_TEXT = """
+*Hello {} !*
+✪ I'm an ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ  [✨](https://telegra.ph/file/92de668be91d7869e5d1a.jpg)
+────────────────────────
+× *Uptime:* `{}`
+× `{}` *users, across* `{}` *chats.*
+────────────────────────
+✪ Hit /help to see my available commands.
+"""
 keyboard = InlineKeyboardMarkup(
     [
         [
