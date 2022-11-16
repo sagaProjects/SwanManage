@@ -106,7 +106,7 @@ async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
     text = ""
     j = 0
-    for user_id in emperor:
+    for user_id in sudoers:
         try:
             user = await app2.get_users(user_id)
             user = user.first_name if not user.mention else user.mention
