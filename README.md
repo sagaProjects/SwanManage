@@ -97,5 +97,5 @@ async def some_function(_, message):
 
 # NOTES
 <h3 align="center">
-THIS IS THE MUSIC REPO THAT I FORKED BECAUSE OF FROM
-[WilliamButcherBot] [https://github.com/TheHamkerCat/WilliamButcherBot]
+THIS IS THE MUSIC REPO THAT I CLONE BECAUSE OF FROM
+<a href="https://github.com/TheHamkerCat"> WilliamButcherBot </a> |
