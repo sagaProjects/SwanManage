@@ -104,7 +104,7 @@ async def userdel(_, message: Message):
 @capture_err
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
-    text = ""
+    emperor = ""
     j = 0
     for user_id in sudoers:
         try:
