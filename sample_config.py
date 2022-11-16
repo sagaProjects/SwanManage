@@ -12,6 +12,6 @@ WELCOME_DELAY_KICK_SEC = 300
 MONGO_URL = "mongodb+srv://saga:saga@cluster0.bdv3ezf.mongodb.net/?retryWrites=true&w=majority"
 ARQ_API_KEY = "KXJZMV-APXUVH-IAKLMF-BUCFAA-ARQ"
 ARQ_API_URL = "https://arq.hamker.in"
-LOG_MENTIONS = True
-RSS_DELAY = 300  # In seconds
+LOG_MENTIONS = False
+RSS_DELAY = 0  # In seconds
 PM_PERMIT = True
