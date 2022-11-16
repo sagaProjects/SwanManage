@@ -103,7 +103,7 @@ async def userdel(_, message: Message):
 @app2.on_message(filters.command("listsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def sudoers_list(_, message: Message):
-    listsudo = await get_sudo()
+    sudoers = await get_sudo()
     text = ""
     j = 0
     for user_id in emperor:
