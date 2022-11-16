@@ -141,7 +141,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
 )
 
 PM_START_TEXT = (
-Hello ✪ I'm an ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ  [✨](https://telegra.ph/file/92de668be91d7869e5d1a.jpg)
+Hello ✪ I'm an ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ  [✨]https://telegra.ph/file/92de668be91d7869e5d1a.jpg
 ────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
