@@ -33,8 +33,8 @@ __MODULE__ = "Sudo"
 __HELP__ = """
 **THIS MODULE IS ONLY FOR DEVS**
 
-.addsudo - To Add A User In Sudo.
-.delsudo - To Remove A User From Sudo.
+.addsudo - To Add A User In Nabi.
+.delsudo - To Remove A User From Nabi.
 .listsudo - To List Sudo Users.
 
 **NOTE:**
@@ -51,14 +51,14 @@ async def useradd(_, message: Message):
     if not message.reply_to_message:
         return await eor(
             message,
-            text="Reply to someone's message to add him to sudoers.",
+            text="Reply to someone's message to add him to Nabi.",
         )
     user_id = message.reply_to_message.from_user.id
     umention = (await app2.get_users(user_id)).mention
     sudoers = await get_sudoers()
 
     if user_id in sudoers:
-        return await eor(message, text=f"{umention} is already in sudoers.")
+        return await eor(message, text=f"{umention} is already in Nabi.")
     if user_id == BOT_ID:
         return await eor(
             message, text="You can't add assistant bot in sudoers."
@@ -71,7 +71,7 @@ async def useradd(_, message: Message):
 
     await eor(
         message,
-        text=f"Successfully added {umention} in sudoers.",
+        text=f"Successfully added {umention} in Nabi.",
     )
 
 
@@ -96,7 +96,7 @@ async def userdel(_, message: Message):
 
     await eor(
         message,
-        text=f"Successfully removed {umention} from sudo.",
+        text=f"Successfully removed {umention} from nabi.",
     )
 
 
@@ -104,7 +104,7 @@ async def userdel(_, message: Message):
 @capture_err
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
-    emperor = ""
+    text = "nabi"
     j = 0
     for user_id in sudoers:
         try:
