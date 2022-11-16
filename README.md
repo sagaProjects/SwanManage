@@ -93,9 +93,8 @@ async def some_function(_, message):
 
 <h3 align="center"> 
    And put that file in wbb/modules/, restart and test your bot.
-</h3>
+<h3 align="left"> 𝐍𝐎𝐓𝐄𝐒!!!
 
-# NOTES
-<h3 align="center">
+
 THIS IS THE MUSIC REPO THAT I CLONE BECAUSE OF FROM
 <a href="https://github.com/TheHamkerCat/WilliamButcherBot"> TheHamkerCat </a> |
