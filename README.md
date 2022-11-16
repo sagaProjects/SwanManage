@@ -49,8 +49,8 @@
 </h2>
 
 ```console
-root@sensei:~$ git clone https://github.com/sagaProjects/BotManage
-root@sensei:~$ cd BotManage
+root@sensei:~$ git clone https://github.com/sagaProjects/SenseiManage
+root@sensei:~$ cd SenseiManage
 root@sensei:~$ pip3 install -U -r requirements.txt
 root@sensei:~$ cp sample_config.py config.py
 ```
