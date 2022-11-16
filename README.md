@@ -94,6 +94,8 @@ async def some_function(_, message):
 <h3 align="center"> 
    And put that file in wbb/modules/, restart and test your bot.
 </h3>
- # NOTES
+
+# NOTES
+<h3 align="center">
 THIS IS THE MUSIC REPO THAT I FORKED BECAUSE OF FROM
-[WilliamButcherBot](https://github.com/TheHamkerCat/WilliamButcherBot)
+[WilliamButcherBot] [https://github.com/TheHamkerCat/WilliamButcherBot]
