@@ -33,8 +33,8 @@ __MODULE__ = "Sudo"
 __HELP__ = """
 **THIS MODULE IS ONLY FOR DEVS**
 
-.addsudo - To Add A User In Sudoers.
-.delsudo - To Remove A User From Sudoers.
+.addsudo - To Add A User In Sudo.
+.delsudo - To Remove A User From Sudo.
 .listsudo - To List Sudo Users.
 
 **NOTE:**
@@ -45,7 +45,7 @@ can even delete your account.
 """
 
 
-@app2.on_message(filters.command("useradd", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("addsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def useradd(_, message: Message):
     if not message.reply_to_message:
@@ -75,7 +75,7 @@ async def useradd(_, message: Message):
     )
 
 
-@app2.on_message(filters.command("userdel", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("delsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def userdel(_, message: Message):
     if not message.reply_to_message:
@@ -87,7 +87,7 @@ async def userdel(_, message: Message):
     umention = (await app2.get_users(user_id)).mention
 
     if user_id not in await get_sudoers():
-        return await eor(message, text=f"{umention} is not in sudoers.")
+        return await eor(message, text=f"{umention} is not in sudo.")
 
     await remove_sudo(user_id)
 
@@ -96,17 +96,17 @@ async def userdel(_, message: Message):
 
     await eor(
         message,
-        text=f"Successfully removed {umention} from sudoers.",
+        text=f"Successfully removed {umention} from sudo.",
     )
 
 
-@app2.on_message(filters.command("sudoers", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("listsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def sudoers_list(_, message: Message):
-    sudoers = await get_sudoers()
+    listsudo = await get_sudo()
     text = ""
     j = 0
-    for user_id in sudoers:
+    for user_id in emperor:
         try:
             user = await app2.get_users(user_id)
             user = user.first_name if not user.mention else user.mention
