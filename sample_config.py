@@ -8,7 +8,7 @@ SUDO_USERS_ID = [1293361587 ,1385170049]  # Sudo users have full access to every
 LOG_GROUP_ID = -1001896097424
 GBAN_LOG_GROUP_ID = -1001896097424
 MESSAGE_DUMP_CHAT = -1001896097424
-WELCOME_DELAY_KICK_SEC = 300
+WELCOME_DELAY_KICK_SEC = 0
 MONGO_URL = "mongodb+srv://saga:saga@cluster0.bdv3ezf.mongodb.net/?retryWrites=true&w=majority"
 ARQ_API_KEY = "KXJZMV-APXUVH-IAKLMF-BUCFAA-ARQ"
 ARQ_API_URL = "https://arq.hamker.in"
