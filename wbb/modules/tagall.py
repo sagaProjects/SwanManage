@@ -11,7 +11,7 @@ __HELP__ = """/tagall - mention all members
 spam_chats = []
 
 @app.on_message(filters.command("tagall") & filters.group)
-@adminsOnly("can_delete_messages")
+@adminsOnly("Minimal_Ijin_Tod")
 async def mentionall(client, message):
     await message.delete()
     chat_id = message.chat.id
