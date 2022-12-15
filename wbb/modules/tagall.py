@@ -16,7 +16,7 @@ async def mentionall(client, message):
     tai = message.reply_to_message
     ppk = message.text.split(None, 1)[1]
     if not tai and not ppk:
-        return await message.edit("Tolong berikan saya pesan atau balas ke pesan")
+        return await message.reply("Tolong berikan saya pesan atau balas ke pesan")
 
     spam_chats.append(chat_id)
     usrnum = 0
@@ -44,10 +44,10 @@ async def mentionall(client, message):
 @app.on_message(filters.command("cancel") & filters.group)
 async def cancel_spam(client, message):
     if not message.chat.id in spam_chats:
-        return await message.edit("Sepertinya tidak ada tagall disini...")
+        return await message.reply("Sepertinya tidak ada tagall disini...")
     else:
         try:
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.edit("Stopped Mention.")
+        return await message.reply("Stopped Mention.")
