@@ -2,6 +2,10 @@ from asyncio import sleep
 from pyrogram import filters
 from wbb import app
 
+__MODULE__ = "Tagall"
+__HELP__ = """/tagall - mention all members
+/cancel - stop mention
+"""
 
 spam_chats = []
 
