@@ -1,5 +1,5 @@
 <h1 align="center"> 
-    ✨ SagaBot ✨ 
+    ✨ Manage ✨ 
 <img src="https://graph.org/file/2dd5c9729f4c99bd03686.jpg"> 
 </h1>
 
@@ -96,5 +96,5 @@ async def some_function(_, message):
 <h3 align="left"> 𝐍𝐎𝐓𝐄𝐒!!!
 
 
-THIS IS THE MUSIC REPO THAT I CLONE BECAUSE OF FROM
+THIS IS THE  REPO THAT I CLONE BECAUSE OF FROM
 <a href="https://github.com/TheHamkerCat/WilliamButcherBot"> TheHamkerCat </a> |
