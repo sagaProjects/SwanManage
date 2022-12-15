@@ -1,6 +1,7 @@
 from asyncio import sleep
 from pyrogram import filters
 from wbb import app
+from wbb.core.decorators.permissions import adminsOnly
 
 __MODULE__ = "Tagall"
 __HELP__ = """/tagall - mention all members
@@ -10,6 +11,7 @@ __HELP__ = """/tagall - mention all members
 spam_chats = []
 
 @app.on_message(filters.command("tagall") & filters.group)
+@adminsOnly("can_delete_messages")
 async def mentionall(client, message):
     await message.delete()
     chat_id = message.chat.id
@@ -43,6 +45,7 @@ async def mentionall(client, message):
 
 
 @app.on_message(filters.command("cancel") & filters.group)
+@adminsOnly("can_delete_messages")
 async def cancel_spam(client, message):
     if not message.chat.id in spam_chats:
         return await message.reply("__Sepertinya tidak ada tagall disini...__")
