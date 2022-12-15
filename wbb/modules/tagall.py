@@ -15,10 +15,10 @@ async def mentionall(client, message):
     chat_id = message.chat.id
     tai = message.reply_to_message
     ppk = message.text.split(None, 1)[1]
-    if not tai:
+    if not tai and not ppk:
         return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
-    if not ppk:
-        return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
+   
+
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ''
