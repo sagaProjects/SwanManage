@@ -144,7 +144,6 @@ home_text_pm = (
 f"ʜᴇʟʟᴏ ✪ I'm an ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ "
 +"I can manage your group with lots of useful features "
 +"feel free to add me to your group "
-+"{https://telegra.ph/file/d46dc3de7a0fc5257088a.jpg} "
 +"✪ Hit /help to see my available commands. "
 )
 keyboard = InlineKeyboardMarkup(
@@ -196,8 +195,8 @@ async def start(_, message):
                 reply_markup=keyb,
             )
     else:
-        await message.reply(
-            home_text_pm,
+        await message.reply_photo(photo="https://telegra.ph/file/d46dc3de7a0fc5257088a.jpg",
+            caption=home_text_pm,
             reply_markup=home_keyboard_pm,
         )
     return
