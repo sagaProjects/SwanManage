@@ -10,7 +10,7 @@ __HELP__ = """/all - mention all members
 
 spam_chats = []
 
-@app.on_message(filters.command("tagall") & filters.group)
+@app.on_message(filters.command("all") & filters.group)
 @adminsOnly("Minimal_Ijin_Tod")
 async def mentionall(client, message):
     await message.delete()
