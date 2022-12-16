@@ -54,4 +54,4 @@ async def cancel_spam(client, message):
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.reply("__Stopped Mention.__")
+        return await message.reply("__Udah Ya Tod Jangan Spam.__")
