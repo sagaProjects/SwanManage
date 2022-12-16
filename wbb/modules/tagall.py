@@ -4,7 +4,7 @@ from wbb import app
 from wbb.core.decorators.permissions import adminsOnly
 
 __MODULE__ = "Tagall"
-__HELP__ = """/tagall - mention all members
+__HELP__ = """/all - mention all members
 /cancel - stop mention
 """
 
