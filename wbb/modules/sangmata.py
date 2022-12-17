@@ -22,7 +22,7 @@ async def sangmata(client, message):
             "__Balas ke pesan orang atau ketik username/id orang__"
         )
     user_id = user
-    sgbot = await message.reply("**🔍 Sedang Memeriksa**")
+    sgbot = await message.reply("**🔍 Lu Siapa Sih Tod**")
     await app2.unblock_user("@SangMataInfo_bot")
     sang = await app2.send_message("SangMataInfo_bot", f"/search_id {user_id}")
     await sang.delete()
