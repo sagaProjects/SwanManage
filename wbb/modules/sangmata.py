@@ -15,7 +15,7 @@ async def sangmata(client, message):
         user = message.from_user.id
     elif not message.reply_to_message and len(message.command) != 1:
         anu = message.text.split(None, 1)[1]
-        iya = await app.get_users(anu)
+        iya = await app.iter_users(anu)
         user = iya.id
     else:
         return await message.reply(
