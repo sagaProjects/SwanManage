@@ -15,7 +15,7 @@ async def sangmata(client, message):
         user = message.from_user.id
     elif not message.reply_to_message and len(message.command) != 1:
         anu = message.text.split(None, 1)[1]
-        iya = await app.iter_users(anu)
+        iya = await app.get_users(anu)
         user = iya.id
     else:
         return await message.reply(
@@ -27,7 +27,7 @@ async def sangmata(client, message):
     sang = await app2.send_message("SangMataInfo_bot", f"/search_id {user_id}")
     await sang.delete()
     await asyncio.sleep(3)
-    async for msg in app2.iter_chat_history("SangMataInfo_bot", 4):
+    async for msg in app2.get_chat_history("SangMataInfo_bot", 4):
         if "This result is incomplete" or "Link To Profile" in msg.text:
             await msg.delete()
         if "No records found" in msg.text:
