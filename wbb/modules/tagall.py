@@ -3,22 +3,22 @@ from pyrogram import filters
 from wbb import app
 
 __MODULE__ = "Tagall"
-__HELP__ = """/tagall - mention all members
+__HELP__ = """/all - mention all members
 /cancel - stop mention
 """
 
 spam_chats = []
 
-@app.on_message(filters.command("tagall") & filters.group)
+@app.on_message(filters.command("all") & filters.group)
 async def mentionall(client, message):
     await message.delete()
     chat_id = message.chat.id
     tai = message.reply_to_message
     ppk = message.text.split(None, 1)[1]
-    if not tai:
+    if not tai and not ppk:
         return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
-    if not ppk:
-        return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
+
+
     spam_chats.append(chat_id)
     usrnum = 0
     usrtxt = ''
@@ -51,4 +51,4 @@ async def cancel_spam(client, message):
             spam_chats.remove(message.chat.id)
         except:
             pass
-        return await message.reply("__Stopped Mention.__")
+        return await message.reply("__Udah Ya Tod Spam!__")
