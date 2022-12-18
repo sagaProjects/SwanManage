@@ -1,7 +1,7 @@
 from asyncio import sleep
 from pyrogram import filters
 from wbb import app
-from wbb.core.decorators.permissions import memberOnly
+from wbb.core.decorators.permissions import adminsOnly
 
 __MODULE__ = "Tagall"
 __HELP__ = """/all - mention all members
@@ -11,7 +11,7 @@ __HELP__ = """/all - mention all members
 spam_chats = []
 
 @app.on_message(filters.command("all") & filters.group)
-@memberOnly("")
+@adminsOnly("Coli_Dulu_Tod")
 async def mentionall(client, message):
     await message.delete()
     chat_id = message.chat.id
