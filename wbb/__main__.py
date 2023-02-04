@@ -119,7 +119,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
             ),
             InlineKeyboardButton(
                 text="Dev 🛠",
-                url="https://t.me/thismebots",
+                url="https://t.me/banned_007",
             ),
         ],
         [
@@ -128,7 +128,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
                 callback_data="stats_callback",
             ),
             InlineKeyboardButton(
-                text="Support 👨", url="http://t.me/ScatterSuport"
+                text="Support 👨", url="http://t.me/minusc0dde"
             ),
         ],
         [
@@ -141,7 +141,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
 )
 
 home_text_pm = (
-f"ʜᴇʟʟᴏ ✪ I'm an ᴍᴀɴᴀɢᴇ sᴇᴄᴜʀɪᴛʏ "
+f"ʜᴇʟʟᴏ ✪ I'm an ˹sᴡλɴ ꭙ ꝛᴏʙᴏᴛ˼  "
 +"I can manage your group with lots of useful features "
 +"feel free to add me to your group "
 +"✪ Hit /help to see my available commands. "
@@ -150,12 +150,12 @@ keyboard = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="Help ❓",
+                text="ʜᴇʟᴘ ❓",
                 url=f"t.me/{BOT_USERNAME}?start=help",
             ),
             InlineKeyboardButton(
-                text="Dev 🛠",
-                url="https://t.me/thismebots",
+                text="ᴅᴇᴠ 🛠",
+                url="https://t.me/banned_007",
             ),
         ],
         [
@@ -163,7 +163,7 @@ keyboard = InlineKeyboardMarkup(
                 text="System Stats 💻",
                 callback_data="stats_callback",
             ),
-            InlineKeyboardButton(text="Support 👨", url="t.me/ScatterSuport"),
+            InlineKeyboardButton(text="Support 👨", url="t.me/minusc0dde"),
         ],
     ]
 )
