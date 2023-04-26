@@ -1,6 +1,6 @@
 BOT_TOKEN = "6230205853:AAGrethJAZtt7keAL1JRexwjU9Bmj3wIcvg"
 API_ID = 28220146
-SESSION_STRING = "BQAjfL64sW2dEOBiBjX-CwxDAseHm7y-36pkaDDfc4m4ESvMTegal1a5iS4s8QrhRIG7U22HrYYHESlW3_96Pm34zsocjTeZqlTEsalSP1o3VoOqr_5ny-GpBd-U0AZtHVEJyQ0vJqJI5qxoygQW1gC-39sOg9OuRjVjAo2KBh8OTYdDqdQ0XloCw_y-g99XrZT4p1HbF52RBgdZlho09QtDM1sN6V1jAozvSAQsgVmGPKO5xp4E1t7XJlFxcemkw_klurLblG17hpIgv4HerCpeXrgLJDb3E-jw15UcqdxWspDXZmPx4-J3MHxN-PdY4m9viIcxGH8DFUD4uD-p_4EHbrRXuQA" # Check Readme to generate sessions; need for userbot
+SESSION_STRING = "BQA0ml--2jx9d0_14Zm6Z9ssD2fEaqzgvZ_T_cxNJdPB_2R-ehhHOrLXnHvwYty-dnL7EqDvQH9IluKur1bKIJejaonVRoZI4sMISCvKtjuN-lRW3lxGRiSfADJcolzYhrtVKeRd5KPRRIXOs5zyXnxXyRNqFwSap4JwkbzqzUul5FEQ0PvP3_sASEEGF_qENe4fz0Zwmoz4xqW-aRL1VTLfVkbYDn3U73oeiNmh8P_rnzYxroW2-mxF-3KvFx-WYEqSdPepAvQ24AThZ_fY8XZ5FHF5Q3_T_3TWiFnd4Ssv2UYcZaLOw7xPP0QHoEy3cB4HqIdzEocIfVL5d4Ku7QZabrRXuQA" # Check Readme to generate sessions; need for userbot
 API_HASH = "1d1e1da63ea443b083df5b69d084f82f"
 USERBOT_PREFIX = "/"
 PHONE_NUMBER = "+6285710970878"  # Need for Userbot
