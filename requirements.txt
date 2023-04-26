@@ -25,4 +25,3 @@ fuzzysearch
 img2pdf
 telegraph
 pytube
-pyrogram==1.4.16
