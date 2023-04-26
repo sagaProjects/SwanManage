@@ -1,9 +1,9 @@
 BOT_TOKEN = "6230205853:AAGrethJAZtt7keAL1JRexwjU9Bmj3wIcvg"
 API_ID = 28220146
-SESSION_STRING = "BQAnICf86LPV1p3L7SoIRxL-O508_V3lw-7ZVIkqVY8m-2rTdfb1LqqxGhj5GsnQhHptw8CSQbOyby7VP_j_zwHVbrLKIvmNTNzUIyvr8vmb1LqDgqa9oi3BVlmy-XkgpCY1pS7bhDuBMOw59CbkbG6-DBWORUTEsHowoi5Uef8BERwaHXIhxI7R0_n-vSmdu3J7aE9XukiXUTae-qTt4wzxfnER7UKzrQS6xSMqBrQnwuTeuk-y1ouYKi7cDZYFvJgCkSeTL6C0KZaDc9vkdFosbaZQ4ZG0fAEDE-DXgD3IwED7c_IpN1wGouRw0iYTLF6PW15kWSwM_UbS61L1tFyAbrRXuQA" # Check Readme to generate sessions; need for userbot
+SESSION_STRING = "BQAjfL64sW2dEOBiBjX-CwxDAseHm7y-36pkaDDfc4m4ESvMTegal1a5iS4s8QrhRIG7U22HrYYHESlW3_96Pm34zsocjTeZqlTEsalSP1o3VoOqr_5ny-GpBd-U0AZtHVEJyQ0vJqJI5qxoygQW1gC-39sOg9OuRjVjAo2KBh8OTYdDqdQ0XloCw_y-g99XrZT4p1HbF52RBgdZlho09QtDM1sN6V1jAozvSAQsgVmGPKO5xp4E1t7XJlFxcemkw_klurLblG17hpIgv4HerCpeXrgLJDb3E-jw15UcqdxWspDXZmPx4-J3MHxN-PdY4m9viIcxGH8DFUD4uD-p_4EHbrRXuQA" # Check Readme to generate sessions; need for userbot
 API_HASH = "1d1e1da63ea443b083df5b69d084f82f"
 USERBOT_PREFIX = "/"
-PHONE_NUMBER = ""  # Need for Userbot
+PHONE_NUMBER = "+6285710970878"  # Need for Userbot
 SUDO_USERS_ID = [1385170049 , 5719914585]  # Sudo users have full access to everything, don't trust anyone
 LOG_GROUP_ID = -1001896097424
 GBAN_LOG_GROUP_ID = -1001896097424
