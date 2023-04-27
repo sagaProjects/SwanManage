@@ -109,7 +109,7 @@ if not SESSION_STRING:
         api_hash=API_HASH,
     )
 else:
-    app2 = Client(SESSION_STRING, api_id=API_ID, api_hash=API_HASH)
+    app2 = Client("userbot2", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING)
 
 aiohttpsession = ClientSession()
 
