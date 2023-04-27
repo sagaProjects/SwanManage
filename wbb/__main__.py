@@ -171,7 +171,7 @@ keyboard = InlineKeyboardMarkup(
 
 @app.on_message(filters.command("start"))
 async def start(_, message):
-    if message.chat.type != "private":
+    if message.chat.type != ChatType.PRIVATE:
         return await message.reply(
             "Pm Me For More Details.", reply_markup=keyboard
         )
@@ -179,7 +179,7 @@ async def start(_, message):
         name = (message.text.split(None, 1)[1]).lower()
         if name == "mkdwn_help":
             await message.reply(
-                MARKDOWN, parse_mode="html", disable_web_page_preview=True
+                MARKDOWN, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             )
         elif "_" in name:
             module = name.split("_", 1)[1]
@@ -204,7 +204,7 @@ async def start(_, message):
 
 @app.on_message(filters.command("help"))
 async def help_command(_, message):
-    if message.chat.type != "private":
+    if message.chat.type != ChatType.PRIVATE:
         if len(message.command) >= 2:
             name = (message.text.split(None, 1)[1]).replace(" ", "_").lower()
             if str(name) in HELPABLE:
