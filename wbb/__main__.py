@@ -169,7 +169,7 @@ keyboard = InlineKeyboardMarkup(
 )
 
 
-@app.on_message(~filters.edited & filters.command("start"))
+@app.on_message(filters.command("start"))
 async def start(_, message):
     if message.chat.type != "private":
         return await message.reply(
@@ -202,7 +202,7 @@ async def start(_, message):
     return
 
 
-@app.on_message(~filters.edited & filters.command("help"))
+@app.on_message(filters.command("help"))
 async def help_command(_, message):
     if message.chat.type != "private":
         if len(message.command) >= 2:
