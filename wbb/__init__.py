@@ -120,7 +120,7 @@ app = Client("wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 log.info("Starting bot client")
 app.start()
 log.info("Starting bot client")
-app2.start()
+app2.run()
 
 log.info("Gathering profile info")
 x = app.get_me()
