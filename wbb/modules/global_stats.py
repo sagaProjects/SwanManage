@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 TheHamkerCat
+Copyright (c) 2023 TheHamkerCat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,13 @@ SOFTWARE.
 import asyncio
 
 from pyrogram import filters
+from pyrogram.enums import ChatType
 from pyrogram.errors import FloodWait
 
 from wbb import BOT_ID, BOT_NAME, SUDOERS, USERBOT_NAME, app, app2
 from wbb.core.decorators.errors import capture_err
 from wbb.modules import ALL_MODULES
 from wbb.utils.dbfunctions import (
-    get_blacklist_filters_count,
     get_filters_count,
     get_gbans_count,
     get_karmas_count,
@@ -45,7 +45,7 @@ from wbb.utils.http import get
 from wbb.utils.inlinefuncs import keywords_list
 
 
-@app.on_message(filters.command("clean_db") & ~filters.edited & SUDOERS)
+@app.on_message(filters.command("clean_db") & SUDOERS)
 @capture_err
 async def clean_db(_, message):
     served_chats = [int(i["chat_id"]) for i in (await get_served_chats())]
@@ -64,7 +64,20 @@ async def clean_db(_, message):
     await m.edit("**Database Cleaned.**")
 
 
-@app.on_message(filters.command("gstats") & ~filters.edited & SUDOERS)
+async def get_total_users_count():
+    schats = await get_served_chats()
+    chats = [int(chat["chat_id"]) for chat in schats]
+    total_count = 0
+    for chat_id in chats:
+        try:
+            count = await app.get_chat_members_count(chat_id)
+            total_count += count
+        except Exception:
+            print(f"Error fetching members count for chat: {chat_id}")
+    return total_count
+
+
+@app.on_message(filters.command("gstats") & SUDOERS)
 @capture_err
 async def global_stats(_, message):
     m = await app.send_message(
@@ -76,6 +89,7 @@ async def global_stats(_, message):
     # For bot served chat and users count
     served_chats = len(await get_served_chats())
     served_users = len(await get_served_users())
+    total_users = await get_total_users_count()  # get total user count
     # Gbans count
     gbans = await get_gbans_count()
     _notes = await get_notes_count()
@@ -86,12 +100,7 @@ async def global_stats(_, message):
     _filters = await get_filters_count()
     filters_count = _filters["filters_count"]
     filters_chats_count = _filters["chats_count"]
-
-    # Blacklisted filters count across chats
-    _filters = await get_blacklist_filters_count()
-    blacklist_filters_count = _filters["filters_count"]
-    blacklist_filters_chats_count = _filters["chats_count"]
-
+ 
     # Warns count across chats
     _warns = await get_warns_count()
     warns_count = _warns["warns_count"]
@@ -118,17 +127,17 @@ async def global_stats(_, message):
 
     # Userbot info
     groups_ub = channels_ub = bots_ub = privates_ub = total_ub = 0
-    async for i in app2.iter_dialogs():
+    async for i in app2.get_dialogs():
         t = i.chat.type
         total_ub += 1
 
-        if t in ["supergroup", "group"]:
+        if t in [ChatType.SUPERGROUP, ChatType.GROUP]:
             groups_ub += 1
-        elif t == "channel":
+        elif t == ChatType.CHANNEL:
             channels_ub += 1
-        elif t == "bot":
+        elif t == ChatType.BOT:
             bots_ub += 1
-        elif t == "private":
+        elif t == ChatType.PRIVATE:
             privates_ub += 1
 
     msg = f"""
@@ -138,11 +147,11 @@ async def global_stats(_, message):
     **{rss_count}** Active RSS Feeds.
     **{gbans}** Globally banned users.
     **{filters_count}** Filters, Across **{filters_chats_count}** chats.
-    **{blacklist_filters_count}** Blacklist Filters, Across **{blacklist_filters_chats_count}** chats.
     **{notes_count}** Notes, Across **{notes_chats_count}** chats.
     **{warns_count}** Warns, Across **{warns_chats_count}** chats.
     **{karmas_count}** Karma, Across **{karmas_chats_count}** chats.
     **{served_users}** Users, Across **{served_chats}** chats.
+    **{total_users}** Total users in chats.
     **{developers}** Developers And **{commits}** Commits On **[Github]({rurl})**.
 
 **Global Stats of {USERBOT_NAME}**:

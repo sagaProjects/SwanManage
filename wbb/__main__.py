@@ -25,7 +25,7 @@ import asyncio
 import importlib
 import re
 from contextlib import closing, suppress
-
+from pyrogram.enums import ChatType, ParseMode
 from uvloop import install
 from pyrogram import filters, idle
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup

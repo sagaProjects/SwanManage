@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 TheHamkerCat
+Copyright (c) 2023 TheHamkerCat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,8 +23,9 @@ SOFTWARE.
 """
 import random
 from datetime import datetime
+import pytz
 
-from pyrogram import filters
+from pyrogram import enums, filters
 
 from wbb import app
 from wbb.core.decorators.errors import capture_err
@@ -36,19 +37,24 @@ __HELP__ = "/detect_gay - To Choose Couple Of The Day"
 
 # Date and time
 def dt():
-    now = datetime.now()
-    dt_string = now.strftime("%d/%m/%Y %H:%M")
+    # Set the timezone to Indian Standard Time
+    ist_timezone = pytz.timezone('Asia/Kolkata')
+
+    # Get the current time in IST
+    ist_now = datetime.now(ist_timezone)
+
+    dt_string = ist_now.strftime("%d/%m/%Y %H:%M")
     dt_list = dt_string.split(" ")
     return dt_list
 
 
 def dt_tom():
     a = (
-            str(int(dt()[0].split("/")[0]) + 1)
-            + "/"
-            + dt()[0].split("/")[1]
-            + "/"
-            + dt()[0].split("/")[2]
+        str(int(dt()[0].split("/")[0]) + 1)
+        + "/"
+        + dt()[0].split("/")[1]
+        + "/"
+        + dt()[0].split("/")[2]
     )
     return a
 
@@ -61,10 +67,10 @@ def tomorrow():
     return str(dt_tom())
 
 
-@app.on_message(filters.command("detect_gay") & ~filters.edited)
+@app.on_message(filters.command("detect_gay"))
 @capture_err
 async def couple(_, message):
-    if message.chat.type == "private":
+    if message.chat.type == enums.ChatType.PRIVATE:
         return await message.reply_text("This command only works in groups.")
 
     m = await message.reply("Detecting gay among us...")
@@ -74,9 +80,10 @@ async def couple(_, message):
         is_selected = await get_couple(chat_id, today())
         if not is_selected:
             list_of_users = []
-            async for i in app.iter_chat_members(message.chat.id):
-                if not i.user.is_bot:
-                    list_of_users.append(i.user.id)
+            async for i in app.get_chat_members(message.chat.id):
+                if not i.user.is_bot and not i.user.is_deleted:
+                    user = await app.get_users(i.user.id)
+                    list_of_users.append(user.id)
             if len(list_of_users) < 2:
                 return await m.edit("Not enough users")
             c1_id = random.choice(list_of_users)

@@ -1,54 +1,51 @@
 from asyncio import sleep
 from pyrogram import filters
 from wbb import app
-
+import asyncio
+from random import shuffle
+from pyrogram import filters
+from pyrogram.types import Message
 __MODULE__ = "Tagall"
-__HELP__ = """/tagall - mention all members
+__HELP__ = """/all - mention all members
 /cancel - stop mention
 """
 
-spam_chats = []
+tagallgcid = []
 
-@app.on_message(filters.command("tagall") & filters.group)
-async def mentionall(client, message):
-    await message.delete()
-    chat_id = message.chat.id
-    tai = message.reply_to_message
-    ppk = message.text.split(None, 1)[1]
-    if not tai:
-        return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
-    if not ppk:
-        return await message.reply("__Tolong berikan saya pesan atau balas ke pesan__")
-    spam_chats.append(chat_id)
-    usrnum = 0
-    usrtxt = ''
-    async for usr in app.iter_chat_members(chat_id):
-        if not chat_id in spam_chats:
-            break
-        usrnum += 1
-        usrtxt += f"[{usr.user.first_name}](tg://user?id={usr.user.id}), "
-        if usrnum == 5:
-            if ppk:
-                txt = f"{ppk}\n{usrtxt}"
-                await app.send_message(chat_id, txt)
-            elif tai:
-                await tai.reply(usrtxt)
-            await sleep(2)
-            usrnum = 0
-            usrtxt = ''
-    try:
-        spam_chats.remove(chat_id)
-    except:
-        pass
-
-
-@app.on_message(filters.command("cancel") & filters.group)
-async def cancel_spam(client, message):
-    if not message.chat.id in spam_chats:
-        return await message.reply("__Sepertinya tidak ada tagall disini...__")
-    else:
+@app.on_message(
+    filters.group & ~filters.private & filters.command(["all", "cancel"])
+)
+async def _(client, message: Message):
+    if message.command[0] == "all":
+        if message.chat.id in tagallgcid:
+            return
+        tagallgcid.append(message.chat.id)
+        text = message.text.split(None, 1)[1] if len(message.text.split()) != 1 else ""
+        users = [
+            member.user.mention
+            async for member in message.chat.get_members()
+            if not (member.user.is_bot or member.user.is_deleted)
+        ]
+        shuffle(users)
+        m = message.reply_to_message or message
+        for output in [users[i : i + 5] for i in range(0, len(users), 5)]:
+            if message.chat.id not in tagallgcid:
+                break
+            await asyncio.sleep(1.5)
+            await m.reply_text(
+                ", ".join(output) + "\n\n" + text, quote=bool(message.reply_to_message)
+            )
         try:
-            spam_chats.remove(message.chat.id)
-        except:
+            tagallgcid.remove(message.chat.id)
+        except Exception:
             pass
-        return await message.reply("__Stopped Mention.__")
+    elif message.command[0] == "cancel":
+        if message.chat.id not in tagallgcid:
+            return await message.reply_text(
+                "sedang tidak ada perintah: <code>tagall</code> yang digunakan"
+            )
+        try:
+            tagallgcid.remove(message.chat.id)
+        except Exception:
+            pass
+        await message.reply_text("Udh Tod Gak Usah Spam!")

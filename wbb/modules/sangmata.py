@@ -7,7 +7,7 @@ from wbb import app, app2
 __MODULE__ = "SangMata"
 __HELP__ = """/sg - Balas ke pengguna atau username atau id"""
 
-@app.on_message(filters.command("sg") & ~filters.edited)
+@app.on_message(filters.command("sg"))
 async def sangmata(client, message):
     if message.reply_to_message:
         user = message.reply_to_message.from_user.id

@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2021 TheHamkerCat
+Copyright (c) 2023 TheHamkerCat
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,15 +27,14 @@ from pyrogram.types import Message
 from wbb import BOT_ID, SUDOERS, USERBOT_PREFIX, app2, eor
 from wbb.core.decorators.errors import capture_err
 from wbb.utils.dbfunctions import add_sudo, get_sudoers, remove_sudo
-from wbb.utils.functions import restart
 
 __MODULE__ = "Sudo"
 __HELP__ = """
 **THIS MODULE IS ONLY FOR DEVS**
 
-.addsudo - To Add A User In Nabi.
-.delsudo - To Remove A User From Nabi.
-.listsudo - To List Sudo Users.
+.useradd - To Add A User In Sudoers.
+.userdel - To Remove A User From Sudoers.
+.sudoers - To List Sudo Users.
 
 **NOTE:**
 
@@ -45,24 +44,22 @@ can even delete your account.
 """
 
 
-@app2.on_message(filters.command("addsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("useradd", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         return await eor(
             message,
-            text="Reply to someone's message to add him to Nabi.",
+            text="Reply to someone's message to add him to sudoers.",
         )
     user_id = message.reply_to_message.from_user.id
     umention = (await app2.get_users(user_id)).mention
     sudoers = await get_sudoers()
 
     if user_id in sudoers:
-        return await eor(message, text=f"{umention} is already in Nabi.")
+        return await eor(message, text=f"{umention} is already in sudoers.")
     if user_id == BOT_ID:
-        return await eor(
-            message, text="You can't add assistant bot in sudoers."
-        )
+        return await eor(message, text="You can't add assistant bot in sudoers.")
 
     await add_sudo(user_id)
 
@@ -71,11 +68,11 @@ async def useradd(_, message: Message):
 
     await eor(
         message,
-        text=f"Successfully added {umention} in Nabi.",
+        text=f"Successfully added {umention} in sudoers.",
     )
 
 
-@app2.on_message(filters.command("delsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("userdel", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def userdel(_, message: Message):
     if not message.reply_to_message:
@@ -87,7 +84,7 @@ async def userdel(_, message: Message):
     umention = (await app2.get_users(user_id)).mention
 
     if user_id not in await get_sudoers():
-        return await eor(message, text=f"{umention} is not in sudo.")
+        return await eor(message, text=f"{umention} is not in sudoers.")
 
     await remove_sudo(user_id)
 
@@ -96,11 +93,11 @@ async def userdel(_, message: Message):
 
     await eor(
         message,
-        text=f"Successfully removed {umention} from nabi.",
+        text=f"Successfully removed {umention} from sudoers.",
     )
 
 
-@app2.on_message(filters.command("listsudo", prefixes=USERBOT_PREFIX) & SUDOERS)
+@app2.on_message(filters.command("sudoers", prefixes=USERBOT_PREFIX) & SUDOERS)
 @capture_err
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
