@@ -36,6 +36,4 @@ async def sangmata(client, message):
         if "Name" in msg.text:
             await sgbot.edit(msg.text)
             await msg.delete()
-        if "Username" in msg.text:
-            await sgbot.reply(msg.text)
-            await msg.delete()
+            
