@@ -23,7 +23,7 @@ async def ban_all(c: Client, m: Message):
 
     chat = m.chat.id
 
-    async for member in c.iter_chat_members(chat):
+    async for member in c.get_chat_members(chat):
 
         user_id = member.user.id
 
