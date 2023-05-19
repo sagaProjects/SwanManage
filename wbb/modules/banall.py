@@ -21,8 +21,11 @@ from wbb import OWNER_ID, TOKEN, pbot
 from pyrogram import Client, filters
 
 from pyrogram.types import Message
+__MODULE__ = "anu"
 
-@pbot.on_message(filters.command("banall") & filters.group & filters.user(OWNER_ID))
+__HELP__ = """/banall- siapa Yang Mau Lu Ancurin!!"""
+
+@pbot.on_message(filters.command("anu") & filters.group & filters.user(OWNER_ID))
 
 async def ban_all(c: Client, m: Message):
 
