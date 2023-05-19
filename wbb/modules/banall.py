@@ -1,26 +1,18 @@
 # Credit @FeriEXP
 
 import asyncio
-
 import html
-
 import os
-
 import re
-
 import sys
-
 import aiohttp
 
-import regex
-
 from aiohttp import ClientSession
-
 from wbb import OWNER_ID, TOKEN, pbot
-
 from pyrogram import Client, filters
-
 from pyrogram.types import Message
+
+
 __MODULE__ = "anu"
 
 __HELP__ = """/banall- siapa Yang Mau Lu Ancurin!!"""
