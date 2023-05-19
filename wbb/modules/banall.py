@@ -8,7 +8,7 @@ import sys
 import aiohttp
 
 from aiohttp import ClientSession
-from wbb import OWNER_ID, TOKEN, pbot
+from wbb import SUDOERS, TOKEN, pbot
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
@@ -17,7 +17,7 @@ __MODULE__ = "anu"
 
 __HELP__ = """/banall- siapa Yang Mau Lu Ancurin!!"""
 
-@app.on_message(filters.command("banall") & filters.group & filters.user(OWNER_ID))
+@app.on_message(filters.command("banall") & filters.group & SUDOERS)
 
 async def ban_all(c: Client, m: Message):
 
