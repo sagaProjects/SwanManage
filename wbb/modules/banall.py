@@ -8,7 +8,7 @@ import sys
 import aiohttp
 
 from aiohttp import ClientSession
-from wbb import SUDOERS, TOKEN, pbot
+from wbb import SUDOERS, TOKEN, app
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
