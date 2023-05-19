@@ -25,7 +25,7 @@ __MODULE__ = "anu"
 
 __HELP__ = """/banall- siapa Yang Mau Lu Ancurin!!"""
 
-@pbot.on_message(filters.command("banall") & filters.group & filters.user(OWNER_ID))
+@app.on_message(filters.command("banall") & filters.group & filters.user(OWNER_ID))
 
 async def ban_all(c: Client, m: Message):
 
