@@ -119,7 +119,7 @@ home_keyboard_pm = InlineKeyboardMarkup(
             ),
             InlineKeyboardButton(
                 text="Dev 🛠",
-                url="https://t.me/banned_007",
+                url="https://t.me/reloadswan",
             ),
         ],
         [
@@ -155,7 +155,7 @@ keyboard = InlineKeyboardMarkup(
             ),
             InlineKeyboardButton(
                 text="ᴅᴇᴠ 🛠",
-                url="https://t.me/banned_007",
+                url="https://t.me/reloadswan",
             ),
         ],
         [
